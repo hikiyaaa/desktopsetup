@@ -1,0 +1,26 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+alias spotify="flatpak run com.spotify.Client &"
+alias discord="flatpak run com.discordapp.Discord &"
+alias minecraft="flatpak run com.mojang.Minecraft &"
+alias obs="flatpak run com.obsproject.Studio &"
+alias obs-studio="flatpak run com.obsproject.Studio &"
+alias kdenlive="flatpak run org.kde.kdenlive &"  
+alias zoom="flatpak run us.zoom.Zoom &"
+

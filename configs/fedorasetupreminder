@@ -1,0 +1,12 @@
+rpmfusion setup from website 
+sudo dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data gnome-tweaks
+enable 3rd party steam nonfree repo
+flatpak flathub setup from website
+enable copr repo with i3-gaps
+pipewire config if not done already
+nitrogen for wallpapers in i3
+brave browser
+disable linux kernel audio power saving features and stuff
+setup spotify themeing
+install basic stuff like discord steam kdenlive obs zoom etc
+
