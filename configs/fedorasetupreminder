@@ -5,7 +5,7 @@ flatpak flathub setup from website
 enable copr repo with i3-gaps
 pipewire config if not done already
 nitrogen for wallpapers in i3
-brave browser
+vivaldi browser/brave/ff
 disable linux kernel audio power saving features and stuff
 setup spotify themeing
 install basic stuff like discord steam kdenlive obs zoom etc
