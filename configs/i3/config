@@ -12,7 +12,7 @@
 set $mod Mod4
 bindsym $mod+q exec "rofi -show window"
 
-#bindsym $mod+s exec "flatpak run com.spotify.Client"
+bindsym $mod+s exec "flatpak run com.spotify.Client"
 
 
 for_window [class="^.*"] border pixel 1
@@ -81,7 +81,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -176,7 +176,11 @@ bar {
 }
 
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id blueman-applet
 
+
+
+bindsym --release Print exec gnome-screenshot -i
 
 
  #class                 border|backgr|text|indicator|child_border
@@ -198,17 +202,20 @@ gaps outer 10
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 #exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
-# change volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
- 
-# change screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
- 
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+
+
+#brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+
+#multimediakeys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next 
+bindsym XF86AudioPrev exec playerctl previous
